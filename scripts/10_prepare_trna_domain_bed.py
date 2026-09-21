@@ -150,9 +150,10 @@ def main():
     parser.add_argument("--trna-dir", default=DEFAULT_TRNA_DIR)
     parser.add_argument("--out", default=os.path.join(DEFAULT_TRNA_DIR, "hg38-tRNA-domains.bed"))
     parser.add_argument("--include-all", action="store_true", help="Include secondary filtered and pseudo tRNAs as well as high-confidence tRNAs")
+    parser.add_argument("--include-pseudogenes", action="store_true", help="Include tRNAs marked pseudo as well as high-confidence tRNAs")
     parser.add_argument("--header", action="store_true", help="Write a header row; omit this for bedtools-compatible BED")
     args = parser.parse_args()
-    keep_notes = [] if args.include_all else ["high confidence set"]
+    keep_notes = [] if args.include_all else ["high confidence set", "pseudo"] if args.include_pseudogenes else ["high confidence set"]
     n_rows, n_genes = write_domains(
         os.path.join(args.trna_dir, "hg38-tRNAs.bed"),
         os.path.join(args.trna_dir, "hg38-tRNAs_name_map.txt"),

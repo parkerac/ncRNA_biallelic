@@ -144,7 +144,9 @@ bash scripts/local_scripts/10_run_prepare_trna_domain_bed.sh
 ```
 
 This writes `hg38-tRNA-domains.bed` in the repo root with column names.
-By default it keeps only GtRNAdb high-confidence tRNAs; add `--include-all` to include secondary filtered and pseudo tRNAs too.
+By default it keeps only GtRNAdb high-confidence tRNAs.
+To also include tRNA pseudogenes, run `bash scripts/local_scripts/10_run_prepare_trna_domain_bed_with_pseudogenes.sh`; this writes `hg38-tRNA-domains-with-pseudogenes.bed`.
+Use `--include-pseudogenes` directly with `scripts/10_prepare_trna_domain_bed.py` for high-confidence tRNAs plus pseudogenes, or `--include-all` to include secondary filtered and pseudo tRNAs too.
 The output columns are:
 `chrom`, `start`, `end`, `name`, `score`, `strand`, `trna_id`, `trnascan_id`, `amino_acid`, `anticodon`, `domain`, `mature_start`, `mature_end`, `pretrna_start`, `pretrna_end`, `trnascan_score`, `origin`, `note`.
 

@@ -154,6 +154,14 @@ Domain nucleotide positions use the standard mature tRNA numbering convention de
 GtRNAdb/tRNAscan-SE reports anticodon and intron bounds in tRNA-relative and genomic coordinates, which the script uses to project mature-domain intervals back onto hg38 BED coordinates and to split intervals around introns.
 References: GtRNAdb output/secondary-structure format (`https://gtrnadb.ucsc.edu/legend.html`), Sprinzl-style tRNA numbering as summarized in tRNADB-CE (`https://academic.oup.com/nar/article/26/1/148/2376733`), and Figure 1 of the following paper (`https://pmc.ncbi.nlm.nih.gov/articles/PMC11122139/`).
 
+To retrieve SH-SY5Y ATAC signal over the tRNA domain intervals, run:
+
+```bash
+bash scripts/local_scripts/11_run_trna_domain_atac.sh
+```
+
+This runs `bigWigAverageOverBed` on `hg38-tRNA-domains_atac.bed` after removing its header row and writes `SHSY5Y_ATAC.tsv` in the repo root.
+
 If you run script 2 and your mounted directory structure differs from the default `shard-{shard}/subshard-{subshard}/postproc/vcf/dragen.vcf.gz` pattern, pass `--vcf-template` with the relative path layout that matches your session.
 
 Script 2 prints progress as it loads genes, queues each shard, and reports each shard as it finishes.

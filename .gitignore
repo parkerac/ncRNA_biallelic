@@ -12,4 +12,10 @@ inputs/
 outputs/
 results/
 tmp/
-scripts/local_scripts
+.pixi/
+pixi.toml
+pixi.lock
+scripts/local_scripts/*
+!scripts/local_scripts/10_run_prepare_trna_domain_bed.sh
+!scripts/local_scripts/10_run_prepare_trna_domain_bed_with_pseudogenes.sh
+!scripts/local_scripts/11_run_trna_domain_atac.sh

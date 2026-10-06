@@ -160,7 +160,7 @@ To retrieve SH-SY5Y ATAC signal over the tRNA domain intervals, run:
 bash scripts/local_scripts/11_run_trna_domain_atac.sh
 ```
 
-This runs `bigWigAverageOverBed` on `hg38-tRNA-domains_atac.bed` after removing its header row and writes `SHSY5Y_ATAC.tsv` in the repo root.
+This runs `bigWigAverageOverBed` on `hg38-tRNA-domains_atac.bed` after removing its header row and writes `SHSY5Y_ATAC.tsv` in the repo root. The output includes one row per domain interval plus one whole-tRNA span per tRNA, labeled with the portion of the domain name before the first `|`.
 
 If you run script 2 and your mounted directory structure differs from the default `shard-{shard}/subshard-{subshard}/postproc/vcf/dragen.vcf.gz` pattern, pass `--vcf-template` with the relative path layout that matches your session.
 
